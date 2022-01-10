@@ -4,4 +4,6 @@
 
 npm run lint:ls-lint
 
+npm run pre-commit:lint-staged
+
 npm run pre-commit:pretty

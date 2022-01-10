@@ -10,6 +10,7 @@
         "lint:ls-lint": "ls-lint",
         "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
         "pre-commit:pretty": "pretty-quick --staged",
+        "pre-commit:lint-staged": "lint-staged",
         "prepare": "husky install"
     },
     "dependencies": {

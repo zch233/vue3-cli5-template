@@ -11,6 +11,7 @@
         "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
         "pre-commit:pretty": "pretty-quick --staged",
         "pre-commit:lint-staged": "lint-staged",
+        "commit": "git-cz",
         "prepare": "husky install"
     },
     "dependencies": {
@@ -28,6 +29,8 @@
         "@vue/cli-plugin-router": "~5.0.0-rc.1",
         "@vue/cli-plugin-vuex": "~5.0.0-rc.1",
         "@vue/cli-service": "~5.0.0-rc.1",
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "3.3.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
@@ -46,5 +49,10 @@
         "stylelint-config-recommended-vue": "^1.1.0",
         "stylelint-config-standard": "^23.0.0",
         "stylelint-order": "^5.0.0"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }

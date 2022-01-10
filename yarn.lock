@@ -7421,7 +7421,7 @@ webidl-conversions@^3.0.0:
   resolved "https://registry.nlark.com/webidl-conversions/download/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
   integrity sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=
 
-webpack-bundle-analyzer@^4.4.0:
+webpack-bundle-analyzer@^4.4.0, webpack-bundle-analyzer@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmmirror.com/webpack-bundle-analyzer/download/webpack-bundle-analyzer-4.5.0.tgz#1b0eea2947e73528754a6f9af3e91b2b6e0f79d5"
   integrity sha1-Gw7qKUfnNSh1Sm+a8+kbK24PedU=

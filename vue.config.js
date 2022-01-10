@@ -14,6 +14,14 @@ if (process.env.NODE_ENV !== 'development') {
             deleteOriginalAssets: false, // 不删除源文件
         })
     );
+    if (process.env.VUE_APP_RUN_Bundle_Analyzer_Plugin) {
+        const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+        prodPlugins.push(
+            new BundleAnalyzerPlugin({
+                analyzerPort: 'auto',
+            }) //打包后文件大小概览
+        );
+    }
 }
 
 module.exports = defineConfig({

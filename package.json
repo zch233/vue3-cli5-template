@@ -17,6 +17,7 @@
         "deploy:prod": "gupo-deploy --mode production -p"
     },
     "dependencies": {
+        "axios": "^0.24.0",
         "core-js": "^3.8.3",
         "secure-ls": "^1.2.6",
         "vue": "^3.2.13",

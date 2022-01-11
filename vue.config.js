@@ -27,6 +27,26 @@ if (process.env.NODE_ENV !== 'development') {
 module.exports = defineConfig({
     transpileDependencies: true,
     lintOnSave: false,
+    chainWebpack: config => {
+        // https://github.com/neutrinojs/webpack-chain
+        config.module.rule('svg').exclude.add(resolve('src/assets/svg')).end();
+
+        config.module
+            .rule('icons')
+            .test(/\.svg$/)
+            .include.add(resolve('src/assets/svg'))
+            .end()
+            .use('svg-sprite-loader')
+            .loader('svg-sprite-loader')
+            .options({
+                symbolId: 'icon-[name]',
+            })
+            .end()
+            .before('svg-sprite-loader')
+            .use('svgo-loader')
+            .loader('svgo-loader')
+            .end();
+    },
     configureWebpack: {
         resolve: {
             alias: {
@@ -37,7 +57,6 @@ module.exports = defineConfig({
     },
     devServer: {
         port: 11223,
-        disableHostCheck: true,
         proxy: {
             '/api': {
                 target: process.env.VUE_APP_API_URL_PROXY,

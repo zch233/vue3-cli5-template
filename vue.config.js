@@ -55,6 +55,12 @@ module.exports = defineConfig({
         },
         plugins: [...prodPlugins],
     },
+    pluginOptions: {
+        'style-resources-loader': {
+            preProcessor: 'less',
+            patterns: [path.resolve(__dirname, './src/styles/theme/index.less')],
+        },
+    },
     devServer: {
         port: 11223,
         proxy: {

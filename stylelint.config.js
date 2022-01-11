@@ -40,6 +40,12 @@ module.exports = {
             },
         ],
         'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
+        'property-no-unknown': [
+            true,
+            {
+                ignoreSelectors: [':export'],
+            },
+        ],
         // Specify the alphabetical order of the attributes in the declaration block
         'order/properties-order': [
             'position',

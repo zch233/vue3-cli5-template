@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }
+}
+
+#app {
+    min-height: 100vh;
+    color: #333;
+    background-color: @pageColor;
+
+    [class*='-avatar'] {
+        > img {
+            width: 100%;
+        }
+    }
+}

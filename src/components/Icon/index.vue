@@ -1,9 +1,3 @@
-<template>
-    <svg class="icon" aria-hidden="true">
-        <use :xlink:href="`#icon-${icon}`" />
-    </svg>
-</template>
-
 <script>
 export default {
     name: 'Icon',
@@ -12,6 +6,13 @@ export default {
             type: String,
             required: true,
         },
+    },
+    setup(props) {
+        return () => (
+            <svg class='icon' aria-hidden='true'>
+                <use xlink:href={`#icon-${props.icon}`} />
+            </svg>
+        );
     },
 };
 </script>

@@ -26,7 +26,7 @@ if (process.env.NODE_ENV !== 'development') {
 
 module.exports = defineConfig({
     transpileDependencies: true,
-    lintOnSave: false,
+    lintOnSave: 'warning',
     chainWebpack: config => {
         // https://github.com/neutrinojs/webpack-chain
         config.module.rule('svg').exclude.add(resolve('src/assets/svg')).end();

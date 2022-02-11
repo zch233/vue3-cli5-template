@@ -64,11 +64,11 @@ module.exports = defineConfig({
     devServer: {
         port: 11223,
         proxy: {
-            '/api': {
+            [process.env.VUE_APP_API_URL]: {
                 target: process.env.VUE_APP_API_URL_PROXY,
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/api': '',
+                    [`^${process.env.VUE_APP_API_URL}`]: '',
                 },
             },
         },

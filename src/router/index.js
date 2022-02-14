@@ -21,6 +21,11 @@ const routes = [
         name: 'ScriptWithSetup',
         component: () => import('@src/views/Demo/ScriptWithSetup'),
     },
+    {
+        path: '/login',
+        name: 'Login',
+        component: () => import('@src/views/login/Login'),
+    },
 ];
 
 export const router = createRouter({

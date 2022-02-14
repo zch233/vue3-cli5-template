@@ -8,6 +8,8 @@
         {{ user.name }}
         {{ token }}
         <HelloWorld v-if="componentVisible" :msg="testState" />
+        <a-button type="primary">Primary Button</a-button>
+        <a-pagination v-model:current="current" :total="50" show-less-items />
     </div>
 </template>
 
@@ -34,6 +36,7 @@ export default {
             user: computed(() => store.getters.user),
             token: computed(() => store.getters.token),
             componentVisible,
+            current: ref(5),
         };
     },
 };

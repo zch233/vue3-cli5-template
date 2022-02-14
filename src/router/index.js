@@ -26,6 +26,11 @@ const routes = [
         name: 'Login',
         component: () => import('@src/views/login/Login'),
     },
+    {
+        path: '/404',
+        name: '404',
+        component: () => import('@src/views/404'),
+    },
 ];
 
 export const router = createRouter({

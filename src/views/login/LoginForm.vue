@@ -10,7 +10,7 @@
         </a-form-item>
 
         <a-form-item name="password" :rules="[{ required: true, message: '请输入密码' }]">
-            <a-input-password v-model:value="formState.password" placeholder="密码">
+            <a-input-password v-model:value="formState.password" placeholder="密码" @keypress.enter="onFinish">
                 <template #prefix>
                     <LockOutlined class="site-form-item-icon" />
                 </template>
@@ -31,6 +31,7 @@
 <script setup>
 import { reactive } from 'vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
+import { useRouter } from 'vue-router';
 
 const formState = reactive({
     username: '',
@@ -38,8 +39,11 @@ const formState = reactive({
     remember: true,
 });
 
+const router = useRouter();
+
 const onFinish = values => {
     console.log('Success:', values);
+    router.push('/');
 };
 
 const onFinishFailed = errorInfo => {

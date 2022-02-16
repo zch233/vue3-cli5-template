@@ -36,7 +36,7 @@ const router = useRouter();
 const onClick = ({ key }) => {
     // 其他路由暂无
     if (key === 'Login') {
-        router.push(key);
+        router.push({ name: key });
     }
 };
 </script>

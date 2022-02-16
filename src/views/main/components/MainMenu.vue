@@ -59,24 +59,24 @@ let openKeys = ref(['sub1']);
 
 const menuList = ref([
     {
-        openKeys: 'sub1',
-        name: 'subnav 1',
-        icon: UserOutlined,
+        openKeys: 'sub1', // 一级分类key
+        name: 'subnav 1', // 一级分类名称
+        icon: UserOutlined, // 菜单图标
         child: [
             {
-                name: 'Nomarl',
-                key: '/normal',
+                name: 'Normal', // 菜单的名称
+                key: 'Normal', // 路由的名字
             },
             {
                 name: 'JsxInSetup1',
-                key: '/demo1',
+                key: 'JsxInSetup1',
             },
         ],
     },
     {
         icon: NotificationOutlined,
         name: 'ScriptWithSetup',
-        key: '/demo3',
+        key: 'ScriptWithSetup',
     },
     {
         openKeys: 'sub2',
@@ -85,13 +85,13 @@ const menuList = ref([
         child: [
             {
                 name: 'JsxInSetup2',
-                key: '/demo2',
+                key: 'JsxInSetup2',
             },
         ],
     },
 ]);
 watch(selectedKeys, val => {
-    router.push(val[0]);
+    router.push({ name: val[0] });
 });
 // 获取当前展开的keys
 const getOpenKeys = () => {
@@ -109,7 +109,7 @@ const getOpenKeys = () => {
 };
 
 onMounted(() => {
-    selectedKeys.value[0] = route.path;
+    selectedKeys.value[0] = route.name;
     openKeys.value[0] = getOpenKeys();
 });
 </script>

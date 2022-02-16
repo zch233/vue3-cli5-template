@@ -43,7 +43,8 @@ let collapsed = ref(false);
     .ant-layout-content {
         padding: 16px;
         margin: 0;
-        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
 
         .cont {
             min-height: 100%;

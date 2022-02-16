@@ -33,6 +33,13 @@ let collapsed = ref(false);
 .ant-layout.main {
     height: 100vh;
 
+    .ant-layout-header {
+        position: relative;
+        z-index: 11;
+        background-color: #fff;
+        box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+    }
+
     .ant-layout-content {
         padding: 16px;
         margin: 0;

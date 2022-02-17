@@ -1,5 +1,5 @@
-import { auth } from '@src/store/modules/auth';
-import { persistedState } from '@src/store/persistedstate';
+import { auth } from '@src/store/modules/auth.js';
+import { persistedState } from '@src/store/persistedstate.js';
 import { createStore, createLogger } from 'vuex';
 import * as getters from './getters';
 

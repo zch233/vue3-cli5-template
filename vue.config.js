@@ -28,6 +28,18 @@ module.exports = defineConfig({
     transpileDependencies: true,
     lintOnSave: 'warning',
     chainWebpack: config => {
+        const rule = config.module.rule('js');
+        // 清理自带的babel-loader
+        rule.uses.clear();
+        // 添加esbuild-loader
+        rule.use('esbuild-loader')
+            .loader('esbuild-loader')
+            .options({
+                loader: 'jsx',
+                target: 'es2015',
+            })
+            .end();
+
         // https://github.com/neutrinojs/webpack-chain
         config.module.rule('svg').exclude.add(resolve('src/assets/svg')).end();
 

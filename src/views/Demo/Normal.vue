@@ -13,7 +13,7 @@
 
 <script>
 import HelloWorld from '@src/components/HelloWorld.vue';
-import Icon from '@src/components/Icon';
+import Icon from '@src/components/Icon/index.vue';
 import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 

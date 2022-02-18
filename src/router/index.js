@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
 import layout from '@src/views/layout';
-
+import NProgress from 'nprogress';
 const routes = [
     {
         path: '/login',
@@ -88,4 +88,12 @@ export const getRoutes = () => {
 export const router = createRouter({
     history: createWebHashHistory(),
     routes,
+});
+
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+    next();
+});
+router.afterEach(() => {
+    NProgress.done();
 });

@@ -1,34 +1,35 @@
 <template>
     <div class="title">后台管理</div>
-    <a-form :model="formState" name="normal_login" class="login-form" @finish="onFinish" @finishFailed="onFinishFailed">
-        <a-form-item name="username" :rules="[{ required: true, message: '请输入用户名' }]">
-            <a-input v-model:value="formState.username" placeholder="用户名">
+    <Form :model="formState" name="normal_login" class="login-form" @finish="onFinish" @finishFailed="onFinishFailed">
+        <Form.Item name="username" :rules="[{ required: true, message: '请输入用户名' }]">
+            <Input v-model:value="formState.username" placeholder="用户名">
                 <template #prefix>
                     <UserOutlined class="site-form-item-icon" />
                 </template>
-            </a-input>
-        </a-form-item>
+            </Input>
+        </Form.Item>
 
-        <a-form-item name="password" :rules="[{ required: true, message: '请输入密码' }]">
-            <a-input-password v-model:value="formState.password" placeholder="密码" @keypress.enter="onFinish">
+        <Form.Item name="password" :rules="[{ required: true, message: '请输入密码' }]">
+            <Input.Password v-model:value="formState.password" placeholder="密码" @keypress.enter="onFinish">
                 <template #prefix>
                     <LockOutlined class="site-form-item-icon" />
                 </template>
-            </a-input-password>
-        </a-form-item>
+            </Input.Password>
+        </Form.Item>
 
         <div class="login-form-wrap">
-            <a-form-item name="remember" no-style>
-                <a-checkbox v-model:checked="formState.remember">记住密码</a-checkbox>
-            </a-form-item>
+            <Form.Item name="remember" no-style>
+                <Checkbox v-model:checked="formState.remember">记住密码</Checkbox>
+            </Form.Item>
         </div>
 
-        <a-form-item>
-            <a-button type="primary" html-type="submit" class="login-form-button"> 登 录 </a-button>
-        </a-form-item>
-    </a-form>
+        <Form.Item>
+            <Button type="primary" html-type="submit" class="login-form-button"> 登 录 </Button>
+        </Form.Item>
+    </Form>
 </template>
 <script setup>
+import { Form, Input, Button, Checkbox } from 'ant-design-vue';
 import { reactive } from 'vue';
 import { UserOutlined, LockOutlined } from '@ant-design/icons-vue';
 import { useRouter } from 'vue-router';

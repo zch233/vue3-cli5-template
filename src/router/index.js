@@ -47,7 +47,7 @@ const routes = [
                 name: 'Subnav.Normal',
                 component: () => import('@src/views/Demo/Normal'),
                 meta: {
-                    title: 'ScriptWithSetup',
+                    title: 'Normal',
                 },
             },
         ],

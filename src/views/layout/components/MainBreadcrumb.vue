@@ -1,15 +1,16 @@
 <template>
     <div class="bread-cont">
         <span class="current-location">当前位置：</span>
-        <a-breadcrumb>
+        <Breadcrumb>
             <transition-group name="breadcrumb">
-                <a-breadcrumb-item v-for="item in breadcrumbs" :key="item.path">{{ item.meta.title }}</a-breadcrumb-item>
+                <Breadcrumb.Item v-for="item in breadcrumbs" :key="item.path">{{ item.meta.title }}</Breadcrumb.Item>
             </transition-group>
-        </a-breadcrumb>
+        </Breadcrumb>
     </div>
 </template>
 
 <script setup>
+import { Breadcrumb } from 'ant-design-vue';
 import { watch, ref } from 'vue';
 import { useRoute } from 'vue-router';
 

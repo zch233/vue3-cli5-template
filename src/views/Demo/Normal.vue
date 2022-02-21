@@ -8,21 +8,7 @@
         {{ user.name }}
         {{ token }}
         <HelloWorld v-if="componentVisible" :msg="testState" />
-        <a-button type="primary">Primary Button</a-button>
         <hr />
-        <a-button type="primary">Primary Button</a-button>
-        <hr />
-        <a-button type="primary">Primary Button</a-button>
-        <hr />
-        <a-button type="primary">Primary Button</a-button>
-        <hr />
-        <a-button type="primary">Primary Button</a-button>
-        <hr />
-        <a-button type="primary">Primary Button</a-button>
-        <hr />
-        <a-button type="primary">Primary Button</a-button>
-        <hr />
-        <a-pagination v-model:current="current" :total="50" show-less-items />
     </div>
 </template>
 
@@ -42,7 +28,7 @@ export default {
         const componentVisible = ref(true);
         const store = useStore();
         onMounted(() => {
-            console.log('home mounted');
+            // console.log('home mounted');
         });
         return {
             testState: computed(() => store.state.testState),

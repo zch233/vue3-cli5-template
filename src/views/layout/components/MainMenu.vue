@@ -1,28 +1,30 @@
 <template>
-    <a-menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" :style="{ height: '100%', borderRight: 0 }">
+    <Menu v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" mode="inline" :style="{ height: '100%', borderRight: 0 }">
         <template v-for="item in menuList">
             <template v-if="item.meta.topLevel">
-                <a-menu-item :key="item.children[0].name">
+                <Menu.Item :key="item.children[0].name">
                     <template #icon>
                         <component :is="item.meta.icon" />
                     </template>
                     {{ item.meta.title }}
-                </a-menu-item>
+                </Menu.Item>
             </template>
             <template v-else>
-                <a-sub-menu :key="item.path">
+                <SubMenu :key="item.path">
                     <template #icon>
                         <component :is="item.meta.icon" />
                     </template>
                     <template #title>{{ item.meta.title }}</template>
-                    <a-menu-item v-for="subItem in item.children" :key="subItem.name">{{ subItem.meta.title }}</a-menu-item>
-                </a-sub-menu>
+                    <Menu.Item v-for="subItem in item.children" :key="subItem.name">{{ subItem.meta.title }}</Menu.Item>
+                </SubMenu>
             </template>
         </template>
-    </a-menu>
+    </Menu>
 </template>
 
 <script setup>
+import { Menu } from 'ant-design-vue';
+const { SubMenu } = Menu;
 import { watch, ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { getRoutes } from '@src/router';

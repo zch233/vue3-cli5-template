@@ -2,33 +2,34 @@
     <div class="header-cont">
         <div class="left">后台管理</div>
         <div class="right">
-            <a-dropdown placement="bottomRight" :trigger="['click']">
+            <Dropdown placement="bottomRight" :trigger="['click']">
                 <a class="ant-dropdown-link" @click.prevent>
-                    <a-avatar :size="32" src="https://aliyuncdn.antdv.com/vue.png" />
+                    <Avatar :size="32" src="https://aliyuncdn.antdv.com/vue.png" />
                     <span class="nickname">昵称</span>
                 </a>
                 <template #overlay>
-                    <a-menu @click="onClick">
-                        <a-menu-item key="1">
+                    <Menu @click="onClick">
+                        <Menu.Item key="1">
                             <unordered-list-outlined />
                             用户列表
-                        </a-menu-item>
-                        <a-menu-item key="2">
+                        </Menu.Item>
+                        <Menu.Item key="2">
                             <UserOutlined />
                             个人中心
-                        </a-menu-item>
-                        <a-menu-divider />
-                        <a-menu-item key="Login">
+                        </Menu.Item>
+                        <Menu.Divider />
+                        <Menu.Item key="Login">
                             <LogoutOutlined />
                             退出登录
-                        </a-menu-item>
-                    </a-menu>
+                        </Menu.Item>
+                    </Menu>
                 </template>
-            </a-dropdown>
+            </Dropdown>
         </div>
     </div>
 </template>
 <script setup>
+import { Dropdown, Avatar, Menu } from 'ant-design-vue';
 import { UserOutlined, LogoutOutlined, UnorderedListOutlined } from '@ant-design/icons-vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();

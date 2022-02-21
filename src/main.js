@@ -5,7 +5,5 @@ import { store } from './store';
 import '@src/utils/svg';
 import '@src/styles/global.less';
 import 'nprogress/nprogress.css';
-import { componentsPlugin } from './plugins/antd.js';
 var app = createApp(App);
-componentsPlugin(app);
 app.use(store).use(router).mount('#app');

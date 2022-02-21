@@ -1,30 +1,32 @@
 <template>
-    <a-layout class="main">
-        <a-layout-header class="header">
+    <Layout class="main">
+        <Header class="header">
             <MainHeader />
-        </a-layout-header>
-        <a-layout>
-            <a-layout-sider width="200" v-model:collapsed="collapsed" collapsible>
+        </Header>
+        <Layout>
+            <Sider width="200" v-model:collapsed="collapsed" collapsible>
                 <MainSlider />
-            </a-layout-sider>
-            <a-layout>
+            </Sider>
+            <Layout>
                 <MainBreadcrumb />
-                <a-layout-content>
+                <Content>
                     <router-view v-slot="{ Component }">
                         <transition name="fade-transform" mode="out-in">
                             <component :is="Component" class="cont" />
                         </transition>
                     </router-view>
-                </a-layout-content>
-            </a-layout>
-        </a-layout>
-    </a-layout>
+                </Content>
+            </Layout>
+        </Layout>
+    </Layout>
 </template>
 <script setup>
 import MainHeader from './components/MainHeader.vue';
 import MainSlider from './components/MainMenu.vue';
 import MainBreadcrumb from './components/MainBreadcrumb.vue';
 import { ref } from 'vue';
+import { Layout } from 'ant-design-vue';
+const { Header, Content, Sider } = Layout;
 
 let collapsed = ref(false);
 </script>

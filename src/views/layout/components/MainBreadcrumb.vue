@@ -1,11 +1,9 @@
 <template>
     <div class="bread-cont">
         <span class="current-location">当前位置：</span>
-        <Breadcrumb>
-            <transition-group name="breadcrumb">
-                <Breadcrumb.Item v-for="item in breadcrumbs" :key="item.path">{{ item.meta.title }}</Breadcrumb.Item>
-            </transition-group>
-        </Breadcrumb>
+        <transition-group name="breadcrumb" tag="div" class="ant-breadcrumb">
+            <Breadcrumb.Item v-for="item in breadcrumbs" :key="item.path">{{ item.meta.title }}</Breadcrumb.Item>
+        </transition-group>
     </div>
 </template>
 

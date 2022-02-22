@@ -2,18 +2,32 @@
     <div class="header-cont">
         <div class="left">后台管理</div>
         <div class="right">
-            <Dropdown placement="bottomRight" :trigger="['click']">
+            <component
+                :is="isFullScreen ? FullscreenExitOutlined : FullscreenOutlined"
+                :style="{ fontSize: '26px', color: '#006fff' }"
+                @click="switchFullScreen"
+            />
+            <Badge count="5" class="header-right__badge">
+                <BellOutlined :style="{ fontSize: '26px', color: '#006fff' }" />
+            </Badge>
+            <Dropdown placement="bottomRight" :trigger="['click']" overlayClassName="header-right__dropdown">
                 <a class="ant-dropdown-link" @click.prevent>
-                    <Avatar :size="32" src="https://aliyuncdn.antdv.com/vue.png" />
-                    <span class="nickname">昵称</span>
+                    <Avatar :size="40">
+                        <template #icon><UserOutlined /></template>
+                    </Avatar>
                 </a>
                 <template #overlay>
-                    <Menu @click="onClick">
-                        <Menu.Item key="1">
-                            <unordered-list-outlined />
-                            用户列表
-                        </Menu.Item>
-                        <Menu.Item key="2">
+                    <Menu @click="handleMenuClick">
+                        <div>
+                            <Avatar :size="40">
+                                <template #icon><UserOutlined /></template>
+                            </Avatar>
+                            <div>
+                                <p>用户名</p>
+                                <p>13912341234</p>
+                            </div>
+                        </div>
+                        <Menu.Item>
                             <UserOutlined />
                             个人中心
                         </Menu.Item>
@@ -29,13 +43,24 @@
     </div>
 </template>
 <script setup>
-import { Dropdown, Avatar, Menu } from 'ant-design-vue';
-import { UserOutlined, LogoutOutlined, UnorderedListOutlined } from '@ant-design/icons-vue';
+import { ref } from 'vue';
+import { Dropdown, Avatar, Menu, message, Badge } from 'ant-design-vue';
+import { UserOutlined, LogoutOutlined, FullscreenExitOutlined, FullscreenOutlined, BellOutlined } from '@ant-design/icons-vue';
+import screenfull from 'screenfull';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 
-const onClick = ({ key }) => {
-    // 其他路由暂无
+// 全屏显示
+const isFullScreen = ref(false);
+const switchFullScreen = () => {
+    if (!screenfull.isEnabled) {
+        return message.error('您的浏览器不支持全屏');
+    }
+    isFullScreen.value = !isFullScreen.value;
+    screenfull.toggle();
+};
+
+const handleMenuClick = ({ key }) => {
     if (key === 'Login') {
         router.push({ name: key });
     }
@@ -48,18 +73,43 @@ const onClick = ({ key }) => {
     justify-content: space-between;
 
     .right {
-        .ant-dropdown-link {
-            display: block;
-            height: 100%;
+        display: flex;
+        align-items: center;
+
+        > span {
+            margin-right: 20px;
+        }
+
+        .ant-badge {
+            cursor: pointer;
         }
 
         .ant-avatar {
             border: 1px solid @borderColor;
         }
+    }
+}
 
-        .nickname {
-            margin-left: @space4;
-            color: rgba(0, 0, 0, 0.65);
+.header-right__dropdown {
+    width: 200px;
+
+    .ant-dropdown-menu {
+        > div {
+            display: flex;
+            padding: 5px 12px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+
+            .ant-avatar {
+                margin-right: 20px;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-size: 15px;
+                line-height: 25px;
+            }
         }
     }
 }

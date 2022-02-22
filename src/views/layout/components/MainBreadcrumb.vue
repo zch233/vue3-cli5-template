@@ -24,7 +24,8 @@ const getBreadcrumbs = () => {
             };
         }
     });
-    breadcrumbs.value = [{ path: '/', meta: { title: '首页' } }].concat(routeMatched);
+    // breadcrumbs.value = [{ path: '/', meta: { title: '首页' } }].concat(routeMatched);
+    breadcrumbs.value = routeMatched;
 };
 
 watch(

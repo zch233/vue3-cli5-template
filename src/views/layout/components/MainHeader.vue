@@ -2,13 +2,9 @@
     <div class="header-cont">
         <div class="left">后台管理</div>
         <div class="right">
-            <component
-                :is="isFullScreen ? FullscreenExitOutlined : FullscreenOutlined"
-                :style="{ fontSize: '26px', color: '#006fff' }"
-                @click="switchFullScreen"
-            />
+            <component :is="isFullScreen ? FullscreenExitOutlined : FullscreenOutlined" @click="switchFullScreen" />
             <Badge count="5" class="header-right__badge">
-                <BellOutlined :style="{ fontSize: '26px', color: '#006fff' }" />
+                <BellOutlined />
             </Badge>
             <Dropdown placement="bottomRight" :trigger="['click']" overlayClassName="header-right__dropdown">
                 <a class="ant-dropdown-link" @click.prevent>
@@ -86,6 +82,13 @@ const handleMenuClick = ({ key }) => {
 
         .ant-avatar {
             border: 1px solid @borderColor;
+        }
+
+        .anticon.anticon-bell,
+        .anticon.anticon-fullscreen,
+        .anticon.anticon-fullscreen-exit {
+            font-size: 22px;
+            color: @masterColor;
         }
     }
 }

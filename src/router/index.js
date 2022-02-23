@@ -88,11 +88,23 @@ export const getRoutes = () => {
 export const router = createRouter({
     history: createWebHashHistory(),
     routes,
+    // 路由切换回滚到指定位置
+    scrollBehavior: () => ({ left: 0, top: 0 }),
 });
 
+const WHITE_LIST = ['/login', '/404'];
 router.beforeEach((to, from, next) => {
     NProgress.start();
-    next();
+    const token = '11';
+    if (token) {
+        next();
+    } else {
+        if (WHITE_LIST.includes(to.path)) {
+            next();
+        } else {
+            next({ path: '/login', query: { ...to.query, redirect: to.path } });
+        }
+    }
 });
 router.afterEach(() => {
     NProgress.done();

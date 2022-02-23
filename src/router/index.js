@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
-import layout from '@src/views/layout';
+import layout from '../components/layout';
+
 import NProgress from 'nprogress';
 const routes = [
     {

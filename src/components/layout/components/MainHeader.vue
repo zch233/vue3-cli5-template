@@ -81,6 +81,7 @@ const handleMenuClick = ({ key }) => {
         }
 
         .ant-avatar {
+            margin-left: 16px;
             border: 1px solid @borderColor;
         }
 

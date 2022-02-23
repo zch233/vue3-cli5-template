@@ -2,7 +2,7 @@
     <div class="title">后台管理</div>
     <Form :model="formState" name="normal_login" class="login-form" @finish="onFinish" @finishFailed="onFinishFailed">
         <Form.Item name="username" :rules="[{ required: true, message: '请输入用户名' }]">
-            <Input v-model:value="formState.username" placeholder="用户名">
+            <Input v-model:value="formState.username" placeholder="用户名" @keydown.enter="onFinish">
                 <template #prefix>
                     <UserOutlined class="site-form-item-icon" />
                 </template>
@@ -10,7 +10,7 @@
         </Form.Item>
 
         <Form.Item name="password" :rules="[{ required: true, message: '请输入密码' }]">
-            <Input.Password v-model:value="formState.password" placeholder="密码" @keypress.enter="onFinish">
+            <Input.Password v-model:value="formState.password" placeholder="密码" @keydown.enter="onFinish">
                 <template #prefix>
                     <LockOutlined class="site-form-item-icon" />
                 </template>

@@ -1,6 +1,7 @@
 <template>
     <div class="header-cont">
         <div class="left">后台管理</div>
+        <div class="center"></div>
         <div class="right">
             <component :is="isFullScreen ? FullscreenExitOutlined : FullscreenOutlined" @click="switchFullScreen" />
             <Badge count="5" class="header-right__badge">
@@ -91,6 +92,10 @@ const handleMenuClick = ({ key }) => {
             font-size: 22px;
             color: @masterColor;
         }
+    }
+
+    .center {
+        flex: 1;
     }
 }
 

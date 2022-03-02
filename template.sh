@@ -5,4 +5,7 @@ set -e
 tempRemoteName="temp2333333"
 git remote add $tempRemoteName $1 &&
 git push $tempRemoteName master &&
-git remote remove $tempRemoteName
+git remote remove $tempRemoteName &&
+cd .. &&
+git clone $1 &&
+yarn

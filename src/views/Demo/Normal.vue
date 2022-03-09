@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <p :style="{ color: theme.masterColor }">22222</p>
         <Icon icon="empty" />
         <svg class="icon" aria-hidden="true">
             <use :xlink:href="`#icon-empty`" />
@@ -17,7 +18,9 @@ import HelloWorld from '@src/components/HelloWorld.vue';
 import Icon from '@src/components/Icon';
 import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
+import theme from '@src/styles/theme/index.less';
 
+console.log(theme);
 export default {
     name: 'Normal',
     components: {
@@ -36,7 +39,14 @@ export default {
             token: computed(() => store.getters.token),
             componentVisible,
             current: ref(5),
+            theme,
         };
     },
 };
 </script>
+
+<style lang="less">
+p {
+    padding: @space2;
+}
+</style>

@@ -1,41 +1,61 @@
-@pageColor: #f5f5f5;
-@masterColor: #fb9c2f;
-@secondColor: #fcb462;
-@thirdColor: #f2bf82;
-@forthColor: #ffe9cf;
+@import 'normal.less';
+@import 'elder.less';
 
+@color-white: var(--color-white);
+@color-success: var(--color-success);
+@color-warning: var(--color-warning);
+@color-danger: var(--color-danger);
+@color-info: var(--color-info);
+
+@pageColor: var(--pageColor);
+
+@masterColor-dark-1: var(--masterColor-dark-1);
+@masterColor: var(--masterColor);
+//@masterColor-light-1: mix(@color-white, @masterColor, 10%); // 自动根据主颜色生成
+@masterColor-light-1: var(--masterColor-light-1);
+@masterColor-light-2: var(--masterColor-light-2);
+@masterColor-light-3: var(--masterColor-light-3);
+
+@textColor-first: var(--textColor-first);
+@textColor-second: var(--textColor-second);
+@textColor-third: var(--textColor-third);
+@textColor-tips: var(--textColor-tips);
+@textColor-link: var(--textColor-link);
+
+@borderRadius-sm: var(--base-borderRadius);
+@borderRadius-md: calc(@borderRadius-sm * 2);
+@borderRadius-lg: calc(@borderRadius-sm * 4);
+@borderRadius-xl: calc(@borderRadius-sm * 4);
+@borderColor: var(--borderColor);
+
+@fontSize-headline: var(--fontSize-headline);
+@fontSize-title: var(--fontSize-title);
+@fontSize-subtitle: var(--fontSize-subtitle);
+@fontSize-content: var(--fontSize-content);
+@fontSize-tips: var(--fontSize-tips);
+@fontSize-footnote: var(--fontSize-footnote);
+
+@fontWeight-light: 100;
+@fontWeight-normal: 500;
+@fontWeight-bord: 800;
+@fontWeight-border: 900;
+
+// 页面间距需遵循以 4 为最小单位原则，元素之间间距、元素高度为 4 的倍数
+@space1: var(--base-space);
+@space2: calc(@space1 * 2);
+@space3: calc(@space1 * 3);
+@space4: calc(@space1 * 4);
+@space5: calc(@space1 * 5);
+@space6: calc(@space1 * 6);
+@space7: calc(@space1 * 7);
+@space8: calc(@space1 * 8);
+@space9: calc(@space1 * 9);
+@space10: calc(@space1 * 10);
+
+// 常用类
 .masterColor {
     color: @masterColor;
 }
-
-@headline: 20px;
-@title: 18px;
-@subTitle: 16px;
-@content: 14px;
-@tips: 12px;
-@footnote: 10px;
-
-// 页面间距需遵循以 4 为最小单位原则，元素之间间距、元素高度为 4 的倍数
-@space1: 4px;
-@space2: 8px;
-@space3: 12px;
-@space4: 16px;
-@space5: 20px;
-@space6: 24px;
-@space7: 28px;
-@space8: 32px;
-@space9: 36px;
-@space10: 40px;
-@space11: 44px;
-@space12: 48px;
-
-@fontWeightLight: 100;
-@fontWeightNormal: 400;
-@fontWeightBord: 800;
-@fontWeightBorder: 900;
-
-@borderColor: #f2f4f5;
-
 // 为了能在 js 中也能使用
 :export {
     masterColor: @masterColor;

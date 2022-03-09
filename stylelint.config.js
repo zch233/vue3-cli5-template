@@ -195,6 +195,7 @@ module.exports = {
             'unicode-bidi',
             'speak',
         ],
+        'custom-property-pattern': '^([a-z][a-zA-Z0-9]*)(-[a-zA-Z0-9]+)*$',
     },
     ignoreFiles: ['**/*.js', '**/*.ts', '**/*.md'],
     overrides: [

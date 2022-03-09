@@ -1174,6 +1174,11 @@
   resolved "https://registry.npmmirror.com/@polka/url/download/@polka/url-1.0.0-next.21.tgz?cache=0&sync_timestamp=1633093101880&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40polka%2Furl%2Fdownload%2F%40polka%2Furl-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha1-XeWiOFo1MJQn9gEZkrVEUU1VmqE=
 
+"@popperjs/core@^2.9.2":
+  version "2.11.2"
+  resolved "https://registry.npmmirror.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
+  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
+
 "@sideway/address@^4.1.3":
   version "4.1.3"
   resolved "https://registry.npmmirror.com/@sideway/address/download/@sideway/address-4.1.3.tgz#d93cce5d45c5daec92ad76db492cc2ee3c64ab27"
@@ -1399,6 +1404,23 @@
   integrity sha512-NOn5eIcgWLOo6qW8AcuLZ7G8PycXu0xTxxkS6Q18VWFxgPUSOwV0pBj2a/4viNZVu25i7RIB7GttdkAIUUXOOg==
   dependencies:
     "@types/node" "*"
+
+"@vant/icons@^1.7.1":
+  version "1.7.3"
+  resolved "https://registry.npmmirror.com/@vant/icons/-/icons-1.7.3.tgz#e51b46065cfde445617401ebe309a33b62a29725"
+  integrity sha512-tW4EqzxN4kXw1rnlnQJQHofEifPbt/gECOWiibomht8QLyvoGuE4iUmDFS288dJ07ZjuTy0bhdABj0SENo2fmQ==
+
+"@vant/popperjs@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmmirror.com/@vant/popperjs/-/popperjs-1.1.0.tgz#b4edee5bbfa6fb18705986e313d4fd5f17942a0f"
+  integrity sha512-8MD1gz146awV/uPxYjz4pet22f7a9YVKqk7T+gFkWFwT9mEcrIUEg/xPrdOnWKLP9puXyYtm7oVfSDSefZ/p/w==
+  dependencies:
+    "@popperjs/core" "^2.9.2"
+
+"@vant/use@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.npmmirror.com/@vant/use/-/use-1.3.5.tgz#fd2817850e76e3098e29d4c8d864e19207c03ab1"
+  integrity sha512-S4rfMQT+71quUbSY9sF7vJTEADVWqHxn8zUbpEl4vzI2CCJx67ri/ZHV911LpXIaZVgSSGPLE5xLV8javmbU0Q==
 
 "@vue/babel-helper-vue-jsx-merge-props@^1.2.1":
   version "1.2.1"
@@ -8182,6 +8204,15 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+vant@^3.4.5:
+  version "3.4.5"
+  resolved "https://registry.npmmirror.com/vant/-/vant-3.4.5.tgz#2934f6623d3705120607eb777ae4151ef192befe"
+  integrity sha512-3an2v6ejW9pijKmaDbSCW7Hs1R45tqtTIcedfI8hEAA5zC2Bp8cXU6Z4gUCK6/RAGOJsB+vcyLINLb1cGS/SzQ==
+  dependencies:
+    "@vant/icons" "^1.7.1"
+    "@vant/popperjs" "^1.1.0"
+    "@vant/use" "^1.3.5"
 
 vary@~1.1.2:
   version "1.1.2"

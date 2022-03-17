@@ -23,6 +23,7 @@
     "dependencies": {
         "axios": "^0.24.0",
         "core-js": "^3.8.3",
+        "dayjs": "^1.11.0",
         "secure-ls": "^1.2.6",
         "vant": "^3.4.5",
         "vue": "^3.2.13",

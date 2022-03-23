@@ -1,7 +1,7 @@
 <template>
     <nav>
         <router-link to="/">Normal</router-link> | <router-link to="/demo1">JSXInSetup1</router-link> | <router-link to="/demo2">JSXInSetup2</router-link> |
-        <router-link to="/demo3">ScriptWithSetup</router-link> |
+        <router-link to="/demo3">ScriptWithSetup</router-link> | <router-link to="/normal">NormalAgain</router-link> |
     </nav>
     <router-view />
 </template>

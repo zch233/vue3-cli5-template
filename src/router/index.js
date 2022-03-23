@@ -7,6 +7,9 @@ const routes = [
         component: () => import('@src/views/Demo/Normal'),
     },
     {
+        path: '/normal',
+    },
+    {
         path: '/demo1',
         name: 'JsxInSetup1',
         component: () => import('@src/views/Demo/JsxInSetup1'),

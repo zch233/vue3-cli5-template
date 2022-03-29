@@ -25,6 +25,7 @@ if (process.env.NODE_ENV !== 'development') {
 }
 
 module.exports = defineConfig({
+    publicPath: './',
     transpileDependencies: true,
     lintOnSave: 'warning',
     chainWebpack: config => {

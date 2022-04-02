@@ -21,6 +21,8 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@vueuse/components": "8.2.4",
+        "@vueuse/core": "8.2.3",
         "axios": "^0.24.0",
         "core-js": "^3.8.3",
         "secure-ls": "^1.2.6",

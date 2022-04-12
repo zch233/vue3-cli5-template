@@ -1,18 +1,19 @@
-import { auth } from '@src/store/modules/auth';
-import { persistedState } from '@src/store/persistedstate';
-import { createStore, createLogger } from 'vuex';
-import * as getters from './getters';
+import { createPinia } from 'pinia';
+import { createPersistedState } from 'pinia-plugin-persistedstate';
+import SecureLS from 'secure-ls';
+
+// https://github.com/softvar/secure-ls
+const ls = new SecureLS({ isCompression: false }); // 默认使用 Base64 编码
 
 const debug = process.env.NODE_ENV === 'development';
-
-export const store = createStore({
-    state() {
-        return {
-            testState: '来自 vuex 的 data',
-        };
-    },
-    getters,
-    modules: { auth },
-    strict: debug,
-    plugins: debug ? [createLogger(), persistedState()] : [persistedState()],
-});
+export const store = createPinia().use(
+    createPersistedState({
+        storage: debug
+            ? undefined
+            : {
+                  getItem: key => ls.get(key),
+                  setItem: (key, value) => ls.set(key, value),
+                  removeItem: key => ls.remove(key),
+              },
+    })
+);

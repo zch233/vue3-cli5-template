@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { store } from '@src/store';
+import { useUser } from '@src/store/modules/auth';
 import { router } from '@src/router';
 
 export const request = axios.create({
@@ -48,11 +48,11 @@ export const clearPending = () => {
 
 request.interceptors.request.use(
     config => {
-        const { token } = store.getters;
+        const { token } = useUser();
         if (token) {
             config.headers.common['Authorization'] = token;
         }
-        if (!config.banRepeatCancel) removePending(config); // 在请求开始前，对之前的请求做检查取消操作
+        if (!config.multiple) removePending(config); // 在请求开始前，对之前的请求做检查取消操作，除了配置了 multiple 的请求
         addPending(config); // 将当前请求添加到 pending 中
         return config;
     },

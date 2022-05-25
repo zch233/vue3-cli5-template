@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useUser } from '@src/store/modules/auth';
 import { router } from '@src/router';
+import { downloadFile } from '@src/utils/index';
 
 export const request = axios.create({
     baseURL: process.env.VUE_APP_API_URL,
@@ -68,15 +69,20 @@ request.interceptors.response.use(
     response => {
         // Do something with response data
         removePending(response.config); // 在请求结束后，移除本次请求
-        const data = response.data;
-        if (data.code === 200) {
-            return data;
-        } else if (data.code === 403) {
-            router.replace('/login');
+        // config 设置 responseType 为 blob 处理文件下载
+        if (response.data instanceof Blob) {
+            return downloadFile(response);
         } else {
-            console.error('😭😭😭', response);
-            alert(data.message || '出错了');
-            throw data;
+            const data = response.data;
+            if (data.code === 200) {
+                return data;
+            } else if (data.code === 403) {
+                router.replace('/login');
+            } else {
+                console.error('😭😭😭', response);
+                alert(data.message || '出错了');
+                throw data;
+            }
         }
     },
     err => {

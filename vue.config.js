@@ -55,6 +55,10 @@ module.exports = defineConfig({
             },
         },
         plugins: [...prodPlugins],
+        output: {
+            filename: `js/[name].[hash].js`,
+            chunkFilename: `js/[name].[hash].js`,
+        },
     },
     pluginOptions: {
         'style-resources-loader': {

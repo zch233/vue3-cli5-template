@@ -14,10 +14,9 @@
         "commit": "git-cz",
         "lint": "vue-cli-service lint",
         "lint:ls-lint": "ls-lint",
-        "lint:prettier": "prettier --write --loglevel warn \"src/**/*\"",
-        "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+        "lint:prettier": "prettier --write . --loglevel warn --ignore-unknown",
+        "lint:stylelint": "stylelint --fix \"**/*.{css,scss,sass,less,styl,html,vue}\" --cache --cache-location node_modules/.cache/stylelint/",
         "pre-commit:lint-staged": "lint-staged",
-        "pre-commit:pretty": "pretty-quick --staged",
         "prepare": "husky install"
     },
     "dependencies": {
